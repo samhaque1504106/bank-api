@@ -1,0 +1,12 @@
+# Ignore DLL files
+*.dll
+
+# Ignore object and bin directories for the Bank-API project
+/Bank-API/obj/
+/Bank-API/bin/
+
+# Ignore Rider IDE specific files
+.idea/
+
+# Ignore Visual Studio specific files and directories
+.vs/
