@@ -1,16 +1,18 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
-namespace SignUp_Api.Models
+
+namespace BankApi.Models
 {
-    public class SignUp
+    public class Users
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [Required(ErrorMessage ="UserName is Must!")]
-        
+        [Index(nameof(UserName), IsUnique = true)]
         public string? UserName { get; set; }
 
         [Required(ErrorMessage = "PassWord is Must!")]
@@ -20,6 +22,7 @@ namespace SignUp_Api.Models
         [Required(ErrorMessage = "Email is Must!")]
         [RegularExpression(@"^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$", ErrorMessage = "Invalid email format.")]
         [EmailAddress]
+        [Index(nameof(Email), IsUnique = true)]
         public string? Email { get; set; }
         public string? UserStatus { get; set; }
         public DateTimeOffset? CreatedAt { get; set; }
